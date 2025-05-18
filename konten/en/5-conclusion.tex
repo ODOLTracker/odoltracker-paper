@@ -1,0 +1,15 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Conclusion}
+\label{sec:conclusion}
+
+Based on the research, development, and testing of the overdimension vehicle detection system using edge computing and cloud integration, several conclusions can be drawn:
+
+\begin{enumerate}[nolistsep]
+  \item The SSD-MobileNetV2-based detection model trained on the vehicle dataset demonstrated good performance with an mAP value of 0.805. The best performance was achieved with a configuration of 50 \emph{epochs} and CosineAnnealingLR \emph{scheduler}, with AP values of 0.879 for the normal class and 0.732 for the \emph{overdimension} class.
+  \item Comparison of edge devices showed that NVIDIA Jetson Nano provided significantly better performance than Beelink Gemini T34, with inference speeds reaching 46.86 FPS (1191.5\% higher) and more efficient CPU usage (12.9-75.5\% vs 93.2-100\%). This demonstrates the importance of GPU acceleration in real-time detection implementations.
+  \item The system successfully integrated edge and cloud components with a 100\% data transfer success rate, despite bandwidth limitations on the 3-5 Mbps hotspot connection used during testing. The system requires relatively low bandwidth (4 KB/s) compared to similar implementations.
+  \item Overall detection accuracy reached 80.72\%, with a false positive rate of 7.22\% and a false negative rate of 10.84\%, meeting the targets set for implementation in toll gate environments.
+  \item Compared to similar research, the developed system showed a better balance between accuracy and inference speed. Compared to Prismadika et al. (2023), this system demonstrated better performance on the same edge device (Jetson Nano), with 46.86 vs 18.5 FPS and 0.805 vs 0.763 mAP. Although YOLOv8 used by Hamayan (2024) achieved higher mAP (0.834), that model required greater computational resources.
+  \item Resource and bandwidth efficiency are advantages of this system, with the lowest bandwidth requirement (4 KB/s) compared to other research such as Hamayan (2024) with 8-10 KB/s, making it suitable for implementation in locations with limited internet connectivity.
+\end{enumerate}
+

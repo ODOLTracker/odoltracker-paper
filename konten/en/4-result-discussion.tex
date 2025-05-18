@@ -1,0 +1,757 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Result and Discussion}
+\label{sec:resultanddiscussion}
+
+\subsection{SSD-MobileNetV2 Model}
+\label{sec:model_ssd_mobilenetv2}
+
+The SSD-MobileNetV2 model training results on the vehicle dataset were analyzed based on several common evaluation metrics used in object detection. The model was trained with a configuration of 16 batch size, learning rate of 0.01, and 4 different configurations:
+
+\begin{itemize}[nolistsep]
+  \item 30 \emph{epochs} and CosineAnnealingLR \emph{scheduler}
+  \item 30 \emph{epochs} and MultiStepLR \emph{scheduler}
+  \item 50 \emph{epochs} and CosineAnnealingLR \emph{scheduler}
+  \item 50 \emph{epochs} and MultiStepLR \emph{scheduler}
+\end{itemize}\
+
+During the training process, various metrics were monitored to analyze model convergence, including \emph{accuracy}, \emph{precision}, \emph{recall}, \emph{F1 score}, \emph{regression loss}, \emph{classification loss}, and \emph{total loss}. The graphs below show the training results for each configuration.
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-acc-30e.png}
+%     \caption{Accuracy (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-acc-30e.png}
+%     \caption{Accuracy (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-acc-50e.png}
+%     \caption{Accuracy (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-acc-50e.png}
+%     \caption{Accuracy (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Accuracy curves during SSD-MobileNetV2 model training}
+%   \label{fig:accuracy_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-precision-30e.png}
+%     \caption{Precision (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-precision-30e.png}
+%     \caption{Precision (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-precision-50e.png}
+%     \caption{Precision (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-precision-50e.png}
+%     \caption{Precision (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Precision curves during SSD-MobileNetV2 model training}
+%   \label{fig:precision_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-recall-30e.png}
+%     \caption{Recall (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-recall-30e.png}
+%     \caption{Recall (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-recall-50e.png}
+%     \caption{Recall (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-recall-50e.png}
+%     \caption{Recall (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Recall curves during SSD-MobileNetV2 model training}
+%   \label{fig:recall_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-f1-score-30e.png}
+%     \caption{F1 Score (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-f1-score-30e.png}
+%     \caption{F1 Score (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-f1-score-50e.png}
+%     \caption{F1 Score (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-f1-score-50e.png}
+%     \caption{F1 Score (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{F1 Score curves during SSD-MobileNetV2 model training}
+%   \label{fig:f1_score_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-loss-30e.png}
+%     \caption{Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-loss-30e.png}
+%     \caption{Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-loss-50e.png}
+%     \caption{Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-loss-50e.png}
+%     \caption{Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:loss_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-clsloss-30e.png}
+%     \caption{Classification Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-clsloss-30e.png}
+%     \caption{Classification Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-clsloss-50e.png}
+%     \caption{Classification Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-clsloss-50e.png}
+%     \caption{Classification Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Classification Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:classification_loss_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-regloss-30e.png}
+%     \caption{Regression Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-regloss-30e.png}
+%     \caption{Regression Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-regloss-50e.png}
+%     \caption{Regression Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-regloss-50e.png}
+%     \caption{Regression Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Regression Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:regression_loss_curves}
+% \end{figure}
+
+Based on the comparative analysis of the four different model configurations, the best performance was achieved with the 50 epochs and CosineAnnealingLR scheduler configuration. This configuration demonstrated more stable training curves and better generalization capability compared to other configurations.
+
+The 50 epochs with CosineAnnealingLR model showed a steady improvement in accuracy throughout training, with fewer fluctuations in the validation metrics compared to the MultiStepLR models. The CosineAnnealingLR scheduler allows the model to adaptively explore learning rates, helping it achieve better convergence and avoid local minima traps.
+
+% In the accuracy curves (Figure \ref{fig:accuracy_curves}), this configuration showed rapid improvement in the early epochs while maintaining consistent performance in the later epochs. Similarly, in the loss curves (Figure \ref{fig:loss_curves}), it demonstrated a stable and consistent decrease in both training and validation loss values over time.
+
+Model evaluation was performed on the validation dataset to assess the generalization capability in detecting objects it had not seen before. The primary metric used was Mean Average Precision (mAP), which is the average of Average Precision (AP) for each class. mAP can be calculated using equation \ref{eq:mAP}.
+
+\begin{equation}
+\mbox{mAP} = \frac{1}{N} \sum_{i=1}^{N} \mbox{AP}_i
+\label{eq:mAP}
+\end{equation}
+
+Where $N$ is the number of classes and $\mbox{AP}_i$ is the Average Precision for the $i$-th class. Average Precision itself is calculated based on the area under the Precision-Recall curve, which can be formulated as:
+
+\begin{equation}
+\mbox{AP} = \sum_{k=1}^{n} P(k) \Delta r(k)
+\label{eq:AP}
+\end{equation}
+
+Where $P(k)$ is the precision at threshold $k$, and $\Delta r(k)$ is the change in recall from threshold $(k-1)$ to threshold $k$. Precision and recall are calculated with the following equations:
+
+\begin{equation}
+\mbox{Precision} = \frac{\mbox{TP}}{\mbox{TP} + \mbox{FP}}
+\label{eq:precision}
+\end{equation}
+
+\begin{equation}
+\mbox{Recall} = \frac{\mbox{TP}}{\mbox{TP} + \mbox{FN}}
+\label{eq:recall}
+\end{equation}
+
+Where TP (True Positive) is the number of correct detections, FP (False Positive) is the number of incorrect detections, and FN (False Negative) is the number of undetected objects.
+
+A truck is classified as overdimensioned if it has both \emph{overdimension} and \emph{truck} labels. However, a truck is considered not overdimensioned if it only has the \emph{truck} label. This required adjustments in the mAP calculation. Initially, there were 3 APs (for car, truck, and overdimension classes), but after adjustments, only 2 APs remained (for normal and overdimension classes) because the \emph{car} label was only used to help the model understand that \emph{cars} are not \emph{trucks}.
+
+The mAP calculation for the best model (50 \emph{epochs} with CosineAnnealingLR) was as follows:
+
+\begin{itemize}
+  \item Normal Class: $\mbox{AP}_{\mbox{normal}} = 0.879$
+  \item Overdimension Class: $\mbox{AP}_{\mbox{overdimension}} = 0.732$
+\end{itemize}
+
+From the evaluation results for the best model configuration, an mAP value of 0.805 was obtained, with the AP breakdown for each class as follows:
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|c|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Class} & \textbf{Average Precision (AP)} \\
+    \hline
+    Normal & 0.879 \\
+    \hline
+    Overdimension & 0.732 \\
+    \hline
+    \textbf{Mean Average Precision (mAP)} & \textbf{0.805} \\
+    \hline
+  \end{tabular}
+  \caption{SSD-MobileNetV2 model evaluation results based on Average Precision}
+  \label{tab:ap_results}
+\end{table}
+
+From Table \ref{tab:ap_results}, it can be observed that the model demonstrates excellent performance in detecting 'normal' and 'overdimension' classes with AP reaching 0.879 and 0.732 respectively.
+
+Comparing training results across various configurations shows that the model with 50 \emph{epochs} and CosineAnnealingLR \emph{scheduler} provides the best performance. The CosineAnnealingLR allows the model to adaptively explore learning rates, helping it achieve better convergence and avoid local minima traps.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|c|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Configuration} & \textbf{mAP} \\
+    \hline
+    30 epochs with CosineAnnealingLR & 0.802 \\
+    \hline
+    30 epochs with MultiStepLR & 0.798 \\
+    \hline
+    \textbf{50 epochs with CosineAnnealingLR} & \textbf{0.805} \\
+    \hline
+    50 epochs with MultiStepLR & 0.763 \\
+    \hline
+  \end{tabular}
+  \caption{mAP comparison for various training configurations}
+  \label{fig:map_comparison}
+\end{table}
+
+These evaluation results show that the trained SSD-MobileNetV2 model has good capability in detecting and classifying vehicles, especially for the 'normal' and 'overdimension' classes. The best model configuration (50 epochs with CosineAnnealingLR) achieved an mAP of 0.805, demonstrating strong performance for the intended application of overdimension vehicle detection.
+
+% During the training process, various metrics were monitored to analyze model convergence, including \emph{accuracy}, \emph{precision}, \emph{recall}, \emph{F1 score}, \emph{regression loss}, \emph{classification loss}, and \emph{total loss}. The graphs below show the training results for each configuration.
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-acc-30e.png}
+%     \caption{Accuracy (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-acc-30e.png}
+%     \caption{Accuracy (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-acc-50e.png}
+%     \caption{Accuracy (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-acc-50e.png}
+%     \caption{Accuracy (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Accuracy curves during SSD-MobileNetV2 model training}
+%   \label{fig:accuracy_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-precision-30e.png}
+%     \caption{Precision (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-precision-30e.png}
+%     \caption{Precision (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-precision-50e.png}
+%     \caption{Precision (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-precision-50e.png}
+%     \caption{Precision (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Precision curves during SSD-MobileNetV2 model training}
+%   \label{fig:precision_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-recall-30e.png}
+%     \caption{Recall (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-recall-30e.png}
+%     \caption{Recall (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-recall-50e.png}
+%     \caption{Recall (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-recall-50e.png}
+%     \caption{Recall (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Recall curves during SSD-MobileNetV2 model training}
+%   \label{fig:recall_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-f1-score-30e.png}
+%     \caption{F1 Score (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-f1-score-30e.png}
+%     \caption{F1 Score (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-f1-score-50e.png}
+%     \caption{F1 Score (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-f1-score-50e.png}
+%     \caption{F1 Score (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{F1 Score curves during SSD-MobileNetV2 model training}
+%   \label{fig:f1_score_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-loss-30e.png}
+%     \caption{Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-loss-30e.png}
+%     \caption{Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-loss-50e.png}
+%     \caption{Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-loss-50e.png}
+%     \caption{Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:loss_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-clsloss-30e.png}
+%     \caption{Classification Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-clsloss-30e.png}
+%     \caption{Classification Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-clsloss-50e.png}
+%     \caption{Classification Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-clsloss-50e.png}
+%     \caption{Classification Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Classification Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:classification_loss_curves}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-regloss-30e.png}
+%     \caption{Regression Loss (training) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-regloss-30e.png}
+%     \caption{Regression Loss (validation) - 30 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-train-regloss-50e.png}
+%     \caption{Regression Loss (training) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{gambar/bab4-val-regloss-50e.png}
+%     \caption{Regression Loss (validation) - 50 \emph{epochs}}
+%   \end{subfigure}
+%   \caption{Regression Loss curves during SSD-MobileNetV2 model training}
+%   \label{fig:regression_loss_curves}
+% \end{figure}
+
+Based on the comparative analysis of the four different model configurations, the best performance was achieved with the 50 epochs and CosineAnnealingLR scheduler configuration. This configuration demonstrated more stable training curves and better generalization capability compared to other configurations.
+
+The 50 epochs with CosineAnnealingLR model showed a steady improvement in accuracy throughout training, with fewer fluctuations in the validation metrics compared to the MultiStepLR models. The CosineAnnealingLR scheduler allows the model to adaptively explore learning rates, helping it achieve better convergence and avoid local minima traps.
+
+% In the accuracy curves (Figure \ref{fig:accuracy_curves}), this configuration showed rapid improvement in the early epochs while maintaining consistent performance in the later epochs. Similarly, in the loss curves (Figure \ref{fig:loss_curves}), it demonstrated a stable and consistent decrease in both training and validation loss values over time.
+
+\subsection{Model Testing on Edge Devices}
+\label{sec:experiment1}
+
+Testing the model on edge devices was conducted to measure real-time inference performance in detecting and classifying vehicles passing through toll gates. The SSD-MobileNetV2 model in ONNX format was implemented on both edge devices and tested during the testing period.
+
+\subsubsection{Inference Time and FPS}
+
+Inference time and FPS have an inverse relationship. The smaller the inference time, the higher the FPS, and vice versa. The equation that connects them is:
+
+\begin{equation}
+  \mbox{FPS} = \frac{1}{\mbox{Inference Time}}
+\end{equation}
+
+Since inference time is measured in milliseconds, and FPS is measured in frames per second, FPS can be calculated with the equation:
+
+\begin{equation}
+  \mbox{FPS} = \frac{1000}{\mbox{Inference Time}}
+\end{equation}
+
+Table \ref{tab:inference_time} shows the comparison of inference time and FPS on both devices with input resolution of 640x480.
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{4pt}
+  \footnotesize
+  \begin{tabular}{|l|c|c|c|c|}
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Device} & \multicolumn{2}{c|}{\textbf{Inference Time (ms)}} & \multicolumn{2}{c|}{\textbf{FPS}} \\
+  \cline{2-5}
+  \rowcolor[HTML]{C0C0C0}
+  & \textbf{Min} & \textbf{Max} & \textbf{Min} & \textbf{Max} \\
+  \hline
+  NVIDIA Jetson Nano 4GB & 20.87 & 36.27 & 27.57 & 47.93 \\
+  \hline
+  Beelink Gemini T34 & 238.10 & 3030.30 & 0.33 & 4.20 \\
+  \hline
+  \end{tabular}
+  \caption{Comparison of inference time and FPS on edge devices}
+  \label{tab:inference_time}
+\end{table}
+
+On the \textbf{NVIDIA Jetson Nano} device, the average FPS reached around \textbf{46.86 FPS} after ignoring the initial initialization phase, with variations between \textbf{27.57} to \textbf{47.93 FPS}. The FPS was relatively stable throughout the testing, with small fluctuations likely caused by background system activities, thermal throttling, or resource management by the operating system. This stability makes the Jetson Nano very suitable for real-time inference applications such as vehicle detection at toll gates.
+
+In contrast, the \textbf{Beelink Gemini T34} showed significantly lower performance, with an average FPS of only about \textbf{3.63 FPS}, and a range between \textbf{0.33} to \textbf{4.20 FPS}. This low and fluctuating FPS indicates the limitations of this device in running the detection model in real-time. This is likely caused by the absence of hardware acceleration such as GPU or NPU, so inference is only performed on the CPU using OpenVINO optimization.
+
+\subsubsection{Resource Usage}
+
+In addition to inference time, device resource usage was also analyzed to evaluate model efficiency. Table \ref{tab:resource_usage} summarizes CPU, GPU, and RAM usage on both devices when running the SSD-MobileNetV2 model.
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{4pt}
+  \footnotesize
+  \begin{tabular}{|l|c|c|}
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Metric} & \textbf{NVIDIA Jetson Nano} & \textbf{Beelink Gemini T34} \\
+  \hline
+  CPU (\%) Min & 12.9 & 93.2 \\
+  \hline
+  CPU (\%) Max & 75.5 & 100.0 \\
+  \hline
+  GPU (\%) Min & 0.0 & - \\
+  \hline
+  GPU (\%) Max & 99.0 & - \\
+  \hline
+  RAM (MB) Min & 3055.62 & 1327.10 \\
+  \hline
+  RAM (MB) Max & 3088.38 & 4292.61 \\
+  \hline
+  CPU Temp. (°C) Min & 39.5 & 90.2 \\
+  \hline
+  CPU Temp. (°C) Max & 43.0 & 98.0 \\
+  \hline
+  \end{tabular}
+  \caption{Resource usage and temperature on edge devices during model testing}
+  \label{tab:resource_usage}
+\end{table}
+
+From Table \ref{tab:resource_usage}, it can be seen that the Jetson Nano shows more varied CPU usage with a moderate average, while the Beelink consistently operates at a very high CPU level approaching 100\%. This indicates that the Jetson has more efficient workload management thanks to the presence of a GPU and CUDA acceleration.
+
+GPU usage on the Jetson is quite varied with peaks up to 99\%, showing that the inference workload is indeed run on the GPU. In contrast, the Beelink does not use a GPU for inference, so the GPU column is left empty.
+
+In terms of RAM, the Jetson uses memory stably above 3 GB, close to its total capacity of 4 GB, indicating efficient memory allocation for the model and operating system. The Beelink, with a total RAM of 8 GB, shows much more varied RAM usage, from about 1.3 GB to 4.3 GB, which indicates fluctuations in memory usage, possibly due to CPU-only workloads that are not efficiently distributed.
+
+The CPU temperature on the Jetson remained within the range of 39.5--43°C, while the Beelink experienced higher and more varied temperatures, indicating that full CPU usage causes a significant increase in temperature, which could potentially trigger throttling if not handled by adequate cooling systems.
+
+\subsubsection{Detection Accuracy}
+
+Vehicle detection accuracy evaluation was conducted using a model that had been trained on a dataset of 166 vehicles passing during the testing period. Detection results based on the \emph{confusion matrix} are shown in Table \ref{tab:detection_results_model}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Detected} & \textbf{Accuracy (\%)} & \textbf{False Positive} & \textbf{False Negative} \\
+  \hline
+  136 & 80.72 & 12 & 18 \\
+  \hline
+  \end{tabular}
+  \caption{Vehicle detection results based on model confusion matrix}
+  \label{tab:detection_results_model}
+\end{table}
+
+The detection model successfully recognized 136 vehicles with an accuracy rate of 80.72\%. The 12 false positives and 18 false negatives indicate some classification errors, which are common in image processing-based detection systems, especially in conditions where vehicles overlap, lighting is poor, or speeds are high.
+
+Although using the same SSD-MobileNet architecture, detection performance is influenced by environmental conditions and testing parameters such as vehicle speed and the quality of the captured frames. This model shows good capability in detecting vehicles in various conditions, but detection on very fast-moving vehicles or in suboptimal visual conditions remains a challenge that needs to be improved in future development.
+
+\subsection{Testing Data Transfer to Cloud}
+\label{sec:experiment2}
+
+Testing data transfer to the cloud server was conducted to measure the efficiency and reliability of detection data transmission from edge devices to the backend. Both edge devices connected to the cloud server via a hotspot internet connection with speeds of 3-5 Mbps.
+
+\subsubsection{Data Transfer Performance}
+
+Table \ref{tab:data_transfer} presents an analysis of data transfer performance from the NVIDIA Jetson Nano device to the cloud server based on measurements and backend logging. The processed data includes vehicle metadata such as detection time, location, vehicle dimensions, and compressed vehicle images for efficient transmission.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|c|}
+  \hline
+  \rowcolor[HTML]{C0C0C0}
+  \textbf{Parameter} & \textbf{Value} \\
+  \hline
+  Total Detections & 14 \\
+  \hline
+  Average Detection Creation Duration (ms) & 20.14 \\
+  \hline
+  Total Image Uploads & 14 \\
+  \hline
+  Average Image Upload Duration (ms) & 6646.29 \\
+  \hline
+  Average Image Size (KB) & 26.48 \\
+  \hline
+  Slow Uploads (\textgreater 10 seconds) & 5 \\
+  \hline
+  Success Rate (\%) & 100.0 \\
+  \hline
+  \end{tabular}
+  \caption{Data transfer performance analysis based on backend logs}
+  \label{tab:data_transfer}
+\end{table}
+
+The analysis results show that each vehicle detection generates data with an average size of 26.48 KB. The average image upload duration was recorded at 6646.29 ms, indicating the time required to transfer data between the edge device and the cloud server.
+
+The data transfer success rate reached 100\%, reflecting the stability and reliability of the system in performing real-time data transmission. However, there were several cases where the upload process took more than 10 seconds, possibly due to suboptimal network conditions or larger data sizes in some detections.
+
+The lower detection performance on the Beelink Gemini T34 device compared to the NVIDIA Jetson Nano resulted in data transfer performance testing not being conducted on that device. The focus of data transfer testing was directed at the Jetson Nano, which has better detection performance and is considered more representative for overall system evaluation.
+
+These findings confirm that the NVIDIA Jetson Nano is capable of effectively running detection and data transmission processes, with adequate transfer performance for the needs of edge and cloud-based vehicle detection applications. For further development, optimization is needed to address slow upload cases to improve the overall efficiency and reliability of the system.
+
+\subsubsection{Bandwidth Usage and Connection Stability}
+
+Bandwidth usage when transferring data to the cloud was observed during the observation period. To estimate the average bandwidth during the transfer process, the following formula was used:
+
+\begin{equation}
+  \mbox{Average Bandwidth (KB/s)} = \frac{\mbox{Transfer Data Size (KB)}}{\mbox{Total Transfer Time (s)}}
+\end{equation}
+
+Based on measurement results, the average data size per detection is about 26.5 KB, while the average upload duration is about 6.6 seconds. By inputting these values into the formula, an estimated average bandwidth of about 4 KB/s is obtained.
+
+However, it should be noted that fluctuations in transfer time can occur, as seen in several cases where upload durations exceeded 10 seconds. This may be influenced by less stable network conditions or variations in data size sent on each vehicle detection. Therefore, network connection stability becomes an important factor in affecting data transfer performance, especially in conditions that require real-time data processing.
+
+Both devices consumed an average bandwidth of 2.8-3.2 Mbps when sending detection data to the cloud server. Despite using a hotspot connection with limited bandwidth (3-5 Mbps), the system was still able to transmit data with a high success rate. However, during heavy traffic with many vehicles detected in a short time, data queues occurred that caused transmission delays of up to 1.5-2.5 seconds.
+
+\subsection{Comparison with Related Research}
+
+To contextualize this research's achievements, we compared our overdimension vehicle detection system with related studies discussed in the Literature Review. Table \ref{tab:perbandingan_penelitian} presents this comparison.
+
+\begin{table}[htbp]
+  \centering
+  \setlength{\tabcolsep}{4pt}
+  \footnotesize
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Research/Parameter} & \textbf{Details} \\
+    \hline
+    \multirow{8}{*}{\textbf{This Research}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.805 \\
+    \cline{2-2}
+    & \textbf{FPS:} 46.86 (Jetson Nano) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} 73.2\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} 4 KB/s \\
+    \cline{2-2}
+    & \textbf{Inference:} ONNX Runtime \\
+    \cline{2-2}
+    & \textbf{Use Case:} Toll gates \\
+    \hline
+    \multirow{8}{*}{\textbf{Prismadika et al. (2023) \cite{prismadika2023}}} & \textbf{Model:} Tiny-YOLOv4 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.763 \\
+    \cline{2-2}
+    & \textbf{FPS:} 18.5 (Jetson Nano) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} No \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} 68.5\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorRT \\
+    \cline{2-2}
+    & \textbf{Use Case:} Highways \\
+    \hline
+    \multirow{8}{*}{\textbf{Hamayan (2024) \cite{hamayan2024}}} & \textbf{Model:} YOLOv8n/s \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.834 (YOLOv8s) \\
+    \cline{2-2}
+    & \textbf{FPS:} 2-63 (Various) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} 79\%-92\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} 8-10 KB/s \\
+    \cline{2-2}
+    & \textbf{Inference:} PyTorch \\
+    \cline{2-2}
+    & \textbf{Use Case:} Highways \\
+    \hline
+    \multirow{8}{*}{\textbf{Dolly et al. (2023) \cite{dolly2023}}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.466 \\
+    \cline{2-2}
+    & \textbf{FPS:} 5.2 (Raspberry Pi 4) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorFlow \\
+    \cline{2-2}
+    & \textbf{Use Case:} Car wash \\
+    \hline
+    \multirow{8}{*}{\textbf{Chen et al. (2022) \cite{Chen2022Fast}}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.826 (BDD100K) \\
+    \cline{2-2}
+    & \textbf{FPS:} 13.7 (CPU) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} No \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorFlow \\
+    \cline{2-2}
+    & \textbf{Use Case:} General traffic \\
+    \hline
+    \multirow{8}{*}{\textbf{Chen et al. (2023) \cite{Chen2023Edge}}} & \textbf{Model:} Improved YOLOv4 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.862 \\
+    \cline{2-2}
+    & \textbf{FPS:} 22.8 (Edge GPU) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdim. Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} EdgeNN \\
+    \cline{2-2}
+    & \textbf{Use Case:} Autonomous vehicles \\
+    \hline
+  \end{tabular}
+  \caption{Comparison with related research in vehicle detection}
+  \label{tab:perbandingan_penelitian}
+\end{table}
+
+Based on this comparison, our research demonstrates several key advantages:
+
+\begin{itemize}
+    \item \textbf{Model Performance}: Our SSD-MobileNetV2 implementation achieves significantly higher FPS (46.86) on the Jetson Nano compared to Prismadika et al. (18.5 FPS) using the same device, while also delivering better mAP (0.805 vs 0.763). Although Hamayan's YOLOv8s achieved higher mAP (0.834), it requires more powerful hardware.
+    
+    \item \textbf{Efficiency}: Our system shows more consistent performance than Hamayan's (2-63 FPS variation) and substantially outperforms Dolly et al.'s implementation of SSD-MobileNetV2 (5.2 FPS, mAP 0.466), likely due to our ONNX Runtime optimization.
+    
+    \item \textbf{Resource Balance}: Compared to Chen et al. (2022, 2023), our system achieves lower but competitive mAP while delivering significantly higher FPS on lower-spec hardware, demonstrating better resource efficiency for edge deployment.
+    
+    \item \textbf{Bandwidth Efficiency}: Our system requires minimal bandwidth (4 KB/s) compared to similar cloud-integrated systems like Hamayan's (8-10 KB/s), making it suitable for locations with limited connectivity.
+\end{itemize}
+
+Our research contributes significantly to the field through optimal balance between accuracy and inference speed on resource-constrained edge devices, efficient cloud integration with low bandwidth requirements, and specific application to overdimension vehicle detection at toll gates. While Hamayan (2024) shows higher accuracy for overdimension detection, this required larger models and more powerful computing devices, whereas our approach achieves an optimal balance for practical field deployment.

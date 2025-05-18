@@ -1,0 +1,194 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Related Works}
+\label{sec:relatedworks}
+
+This research draws references from several previous studies with similar or overlapping topics, as well as the basis for development and innovation that will be implemented in this research. The following are some previous studies that are taken as references:
+
+\subsection{\textbf{Truck Vehicle Detection in Video Using Tiny-YOLOv4 Method}}
+\label{subsec:deteksikendaraantrukprismadika}
+Research by Prismadika Yuniar et al. \cite{prismadika2023} examined real-time truck detection in surveillance videos on highways. Challenges arose because trucks have similar dimensions to buses and mechanical structures similar to pickups. In the initial phase, the original YOLO model was only able to detect the cab and the truck bed without accounting for the cargo. Therefore, a custom dataset was created with bounding boxes for all parts of the truck including its cargo.
+
+Tiny-YOLOv4 was chosen because it is lighter and compatible with various devices. Testing on three devices showed that the Acer E5 Laptop achieved 98.2\% accuracy at 13 FPS, the Lenovo Legion 5 Laptop 98\% at 28 FPS, and the Dell Precision 3640 Tower PC 97.5\% at 38 FPS.
+
+The results obtained were that higher FPS tends to decrease accuracy, and devices with CPUs above 3.0 GHz, RAM of at least 16 GB, and GPUs more than 4 GB are able to run detection in real-time effectively.
+
+\subsection{\textbf{Real-time Overdimension Vehicle Detection System Using Deep Learning on Highways}}
+\label{subsec:deteksikendaraanoverdimensionhamayan}
+This research was conducted by Ahmad Hamayan Nabih \cite{hamayan2024}. The study aimed to develop a real-time overdimension vehicle detection system using deep learning on highways. This system uses a modified YOLOv8 model to detect overdimension vehicles. The dataset used was collected from highways in Indonesia. The variations used were accuracy variations on various devices and YOLOv8 models.
+
+Device variations included a PC with an External NVIDIA GeForce GTX 1650Ti GPU, a Laptop without an External GPU, and an Intel NUC i5 Gen 11. The results showed that the PC with External NVIDIA GeForce GTX 1650Ti GPU was able to detect overdimension vehicles with 85\% - 90\% accuracy at 33 FPS - 63 FPS, the Laptop without External GPU with 87\% - 92\% accuracy at 7 FPS - 10 FPS, and Intel NUC i5 Gen 11 with 79\% - 90\% accuracy at 2 FPS. While the YOLOv8 model variations included YOLOv8n and YOLOv8s, where YOLOv8n was trained with 50 epochs and YOLOv8s was trained with 75 epochs.
+
+The conclusion was that the YOLOv8n model was better in terms of FPS compared to YOLOv8s but had lower accuracy. Meanwhile, the comparative model, YOLOv8s, had higher accuracy but lower FPS. It was also found that devices with higher specifications were able to detect overdimension vehicles with higher accuracy and higher FPS.
+
+\subsection{\textbf{Implementation of Automatic Vehicle Counting System Based on Computer Vision}}
+\label{subsec:implementasisistemhitungkendaraan}
+This research was conducted by Dolly Indra et al. \cite{dolly2023}. The study aimed to develop an automatic vehicle counting system at vehicle washing facilities. This system uses a Raspberry Pi 4 as an edge device and the SSD MobileNet V2 model as a detection model. The system is able to count the number of vehicles entering and exiting the car wash in real-time, connected to a mobile application.
+
+The results showed that the automatic system was able to detect cars and motorcycles with an average accuracy rate of 46.6\%, and the application on the smartphone was able to count the number of vehicles entering and leaving the vehicle washing facility.
+
+\subsection{\textbf{Government Regulations on Overdimension Vehicles}}
+
+Overdimension vehicles are vehicles that have dimensions exceeding the provisions set by the government. The Indonesian government has regulated provisions regarding overdimension vehicles in Government Regulation Number 55 of 2012 Articles 54 and 55 concerning Motor Vehicle Dimensions cited from Priambudi et al. \cite{Priambudi2020Pre-study}. The following are the provisions regulated in these regulations:
+
+\subsubsection{Government Regulation Number 55 of 2012 Article 54}
+
+\begin{enumerate}[noitemsep]
+  \item Length does not exceed:
+  \begin{enumerate}[noitemsep]
+    \item 12,000 (twelve thousand) millimeters for Motor Vehicles without Trailer Carts or Trailer Carts other than Bus Cars;
+    \item 13,500 (thirteen thousand five hundred) millimeters for single Bus Cars;
+    \item 18,000 (eighteen thousand) millimeters for Motor Vehicles equipped with Trailer Carts or Trailer Carts.
+  \end{enumerate}
+  \item Width does not exceed 2,500 (two thousand five hundred) millimeters;
+  \item Height does not exceed 4,200 (four thousand two hundred) millimeters and not more than 1.7 (one point seven) times the width of the Vehicle;
+  \item The departure angle of the Vehicle is at least 8° (eight degrees) measured from the surface of the plane or flat road; and
+  \item The clearance between the lowest permanent part of the Motor Vehicle to the surface of the road plane does not touch the surface of the road plane.
+  \item The length of the Vehicle part protruding backward from the rearmost axle is a maximum of 62.50\% (sixty-two point five zero percent) of the distance between axles, while that protruding forward from the foremost axle is a maximum of 47.50\% (forty-seven point five zero percent) of the distance between axles.
+  \item In the case of Motor Vehicles having an overall height of more than 3,500 (three thousand five hundred) millimeters, they must be equipped with a sign.
+  \item The sign as referred to in point 7 is in the form of text that is easily seen by the driver in the driving space.
+\end{enumerate}
+
+\subsubsection{Government Regulation Number 55 of 2012 Article 55}
+
+\begin{enumerate}[noitemsep]
+  \item The size of the cargo bed of a Goods Car is adjusted to the axle configuration, GVW, GCW, and the type specification of the Motor Vehicle platform.
+  \item The cargo bed of the Goods Car as referred to in paragraph (1) consists of:
+  \begin{enumerate}[noitemsep]
+    \item open cargo bed; and
+    \item closed cargo bed.
+  \end{enumerate}
+  \item Open and closed cargo beds as referred to in paragraph (2) must meet at least the following requirements:
+  \begin{enumerate}[noitemsep]
+    \item the length, width, and height of the cargo bed must be in accordance with the technical specifications of the Motor Vehicle and its carrying capacity;
+    \item the distance between the outer wall of the rear part of the cabin and the front part of the cargo bed is at least 150 (one hundred and fifty) millimeters for vehicles with a single rear axle and 200 (two hundred) millimeters for Motor Vehicles with double or more rear axles;
+    \item the outer wall of the rear part of the cargo bed does not exceed the end of the rear part of the platform except for dump trucks; and
+    \item the maximum width of the open cargo bed does not exceed:
+    \begin{enumerate}[noitemsep]
+      \item 50 (fifty) millimeters from the outermost tire on the second axle or the rear axle of the Vehicle for Motor Vehicles with double axles; or
+      \item width of the cabin plus 50 (fifty) millimeters on the left side and 50 (fifty) millimeters on the right side for Motor Vehicles with a single axle.
+    \end{enumerate}
+  \end{enumerate}
+  \item In the case that the height of the open cargo bed on the Goods Car as referred to in paragraph (2) letter a is lower than the rear cabin window, a grate must be installed on the rear cabin window of the Goods Car.
+  \item For closed cargo beds, in addition to meeting the requirements as referred to in paragraph (3), they must meet the requirements that the height of the closed cargo bed measured from the ground surface is at most 4,200 (four thousand two hundred) millimeters and not more than 1.7 (one point seven) times the width of the Motor Vehicle.
+\end{enumerate}
+
+From these provisions, a formula approach is carried out to calculate the dimensions of overdimension vehicles based on the provisions set by the government. This will help in identifying vehicles that violate the permitted dimension limits. The formulas used are as follows:
+
+\begin{itemize}[nolistsep]
+  \item Length: \( L \leq 12000 \) mm
+  \item Width: \( W \leq 2500 \) mm
+  \item Height: \( H \leq 4200 \) mm and \( H \leq 1.7 \times W \)
+  \item Departure angle: \( \theta \geq 8^\circ \)
+  \item Clearance: \( D \geq 0 \) mm
+  \item Rear part length: \( L_{\mathrm{rear}} \leq 0.625 \times L \)
+  \item Front part length: \( L_{\mathrm{front}} \leq 0.475 \times L \)
+  \item Overall height: \( H_{\mathrm{overall}} > 3500 \) mm
+  \item Width of open cargo bed: \( W_{\mathrm{bed}} \leq 50 \) mm
+  \item Height of closed cargo bed: \( H_{\mathrm{bed}} \leq 4200 \) mm and \( H_{\mathrm{bed}} \leq 1.7 \times W \)
+  \item Distance between outer walls: \( D_{\mathrm{outer}} \geq 150 \) mm
+  \item Width of open cargo bed: \( W_{\mathrm{bed}} \leq 50 \) mm
+\end{itemize}
+
+However, in this research, these formulas are not used directly. Instead, a deep learning model will be used to identify overdimension vehicles based on their visual characteristics. This will enable the system to perform detection automatically and in real-time without requiring manual calculations.
+
+\subsection{\textbf{SSD (Single Shot MultiBox Detector)}}
+
+Single Shot MultiBox Detector (SSD) is an object detection architecture developed by Wei Liu et al. but cited from Rahmaniar and Hernawan \cite{Rahmaniar2021Real-Time}. SSD introduces a single shot approach that allows the model to perform object detection and classification in one step. This differs from two-stage approaches like Faster R-CNN which require two phases for object detection.
+
+SSD uses multi-scale feature maps to detect objects at various scales. This architecture consists of a base network (typically using VGG16 or ResNet architecture) followed by several convolutional layers to produce feature maps at various resolutions. Each feature map layer is used to predict bounding boxes and object classes contained in the image.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.18]{gambar/bab2-arsitektur-ssd.png}
+  \caption{SSD Architecture}
+  \label{fig:arsitektur_ssd}
+\end{figure}
+
+SSD has proven effective in object detection on various datasets, including PASCAL VOC and COCO. The main advantage of SSD is its ability to perform object detection quickly and accurately in one step. In this research, SSD is used as a detection model to identify overdimension vehicles in highway surveillance videos.
+
+\subsection{\textbf{Fast Vehicle Detection Algorithm in Traffic Scene Based on Improved SSD}}
+\label{subsec:fastvehicledetectionalgorithm}
+
+This research conducted by Zhichao Chen et al. \cite{Chen2022Fast} proposed improvements to the Single Shot Multibox Detector (SSD) algorithm for vehicle detection in complex traffic environments. The main innovation is the use of MobileNet v2 as the backbone, replacing VGG16 which is computationally heavier. Additionally, a channel attention mechanism (SE module) was added to strengthen important features and a deconvolution module to perform bottom-top feature fusion, so that semantic information in shallow features can be improved.
+
+Experimental results showed an average precision (AP) of 82.59\% on the public BDD100K dataset and 84.83\% on KITTI. The inference time per image was only 73 ms, about 5/11 of the original SSD model's time, resulting in improvements in both speed and accuracy. This research confirms that the combination of a lightweight backbone, attention mechanism, and feature fusion can produce efficient and accurate vehicle detection, highly relevant for real-time applications and devices with limited resources.
+
+\subsection{\textbf{Edge Intelligence Empowered Vehicle Detection and Image Segmentation for Autonomous Vehicles}}
+\label{subsec:edgeintelligenceempoweredvehicledetection}
+
+This research conducted by Zhinchao Chen et al. \cite{Chen2023Edge} developed an edge intelligence approach for vehicle detection and image segmentation in intelligent transportation systems and autonomous vehicles. Edge intelligence combines artificial intelligence and edge computing to process data locally near the data source, thereby reducing latency, saving transmission resources, enhancing data security, and optimizing resource utilization between devices, edge, and cloud.
+
+The main innovations of this research are vehicle detection based on improved YOLOv4 where the researchers integrated Efficient Channel Attention (ECA) into the YOLOv4 convolution module and added High-Resolution Network (HRNet) to enhance vehicle detection capabilities, especially on edge devices with limited computational resources. Additionally, image segmentation based on improved DeepLabv3+ where the DeepLabv3+ model was modified by replacing the backbone with MobileNetV2 and using the softpool method to reduce information loss during segmentation, resulting in a smaller network size and increased segmentation accuracy.
+
+Results from this research include:
+\begin{itemize}[nolistsep]
+  \item Vehicle detection accuracy increased from 82.03\% to 86.22\% (Average Precision/AP).
+  \item Image segmentation accuracy (mean Intersection over Union/mIoU) increased from 73.32\% to 75.63\%.
+\end{itemize}
+The proposed model can run efficiently on edge devices, supporting real-time requirements and bandwidth savings.
+
+\subsection{\textbf{Edge Computing}}
+
+Edge computing is a computing paradigm that enables data processing to be performed near the data source, such as IoT (Internet of Things) devices or sensors. This contrasts with traditional computing which requires sending data to data centers or the cloud for processing. Edge computing allows for faster, more responsive, and efficient data processing by utilizing local resources.
+
+The main advantage of edge computing is its ability to reduce latency and speed up system response \cite{aws2024}. By performing data processing near the data source, edge computing enables applications to respond more quickly to changing environmental conditions. This is particularly important in the context of real-time applications such as object detection in highway surveillance videos.
+
+Additionally, edge computing helps reduce network load and cloud burden by performing data processing locally. This can reduce operational costs and improve overall system efficiency. In the context of this research, edge computing is used to run object detection models in real-time on local devices without requiring an internet connection.
+
+Examples of edge computing implementations used in this research are the Jetson Nano and Beelink Gemini T34, which function as edge devices to run object detection models in real-time.
+
+\subsection{\textbf{Flutter}}
+
+Flutter is an open-source application development framework developed by Google \cite{google2024}. Flutter enables developers to create mobile applications with rich and responsive user interfaces. Flutter uses the Dart programming language, developed by Google, as its primary language.
+
+The main advantage of Flutter is its ability to create consistent mobile applications across various platforms, including Android and iOS. Flutter uses widgets as the basic components for building user interfaces. Flutter widgets are declarative, which means developers define how the user interface should look based on current conditions.
+
+Flutter also provides various plugins and packages that extend application functionality. Developers can use Flutter plugins to access device features such as cameras, location, and sensors. Additionally, Flutter also provides packages to integrate applications with cloud services, databases, and external APIs.
+
+In this research, Flutter is used as a mobile application development platform to display object detection results in real-time. The Flutter application communicates with the cloud to receive object detection data and display it in a responsive user interface.
+
+\subsection{\textbf{PostgreSQL}}
+
+PostgreSQL is a reliable open-source relational database management system (RDBMS). PostgreSQL is developed by an active developer community and has comprehensive features for managing data at scale. PostgreSQL uses SQL (Structured Query Language) to interact with the database and supports various data types and operations \cite{postgresql2025}.
+
+The main advantages of PostgreSQL are reliability, flexibility, and scalability. PostgreSQL has ACID (Atomicity, Consistency, Isolation, Durability) transaction features that ensure data consistency and operational reliability. PostgreSQL also supports various data types such as text, numbers, geometry, and JSON, as well as complex operations like joins, subqueries, and triggers.
+
+PostgreSQL also has good support for large-scale data management. PostgreSQL supports indexes, partitions, and replication to improve system performance and availability. Additionally, PostgreSQL also has strong security features such as authentication, authorization, and data encryption.
+
+In this research, PostgreSQL is used as a database to store object detection data and user data. PostgreSQL will be used to store information about detected objects, detection locations, and detection times. This database will be used by the Flutter application to display object detection data and allow users to view object detection history.
+
+\subsection{\textbf{Express.js}}
+
+Express.js is a minimalist and flexible back-end web framework for Node.js. Express.js provides a set of features for building web applications and APIs quickly and easily. Express.js uses a middleware approach that allows developers to add functionality modularly to applications \cite{expressjs2024}.
+
+The main advantages of Express.js include:
+\begin{itemize}[nolistsep]
+  \item \textbf{Minimalist and Flexible}: Express.js provides the basic features needed to build web applications without imposing specific structures or conventions.
+  \item \textbf{Middleware}: The middleware system allows developers to add functionality such as logging, authentication, and error handling in a modular way.
+  \item \textbf{Routing}: Express.js provides a robust routing system to handle HTTP requests with various methods and parameters.
+  \item \textbf{Template Engine}: Supports various template engines to generate dynamic HTML views.
+\end{itemize}
+
+\subsection{\textbf{Apache HTTP Server}}
+
+Apache HTTP Server (Apache2) is the most widely used open-source web server in the world. Apache2 is developed and managed by the Apache Software Foundation and supports various operating system platforms. This server is known for its reliability, configuration flexibility, and extensive module ecosystem \cite{apache2024}.
+
+The main features of Apache2 include:
+\begin{itemize}[nolistsep]
+  \item \textbf{Virtual Hosting}: The ability to run multiple websites on a single server.
+  \item \textbf{Dynamic Modules}: Support for adding and removing modules without recompiling the server.
+  \item \textbf{Security}: Provides security features such as SSL/TLS, authentication, and authorization.
+  \item \textbf{Reverse Proxy}: Can function as a reverse proxy to distribute load and enhance security.
+\end{itemize}
+
+\subsection{\textbf{PM2 (Process Manager 2)}}
+
+PM2 is a process manager for Node.js applications that allows developers to manage and keep applications running in production environments. PM2 provides important features such as load balancing, monitoring, and log management to ensure application availability and performance \cite{pm22024}.
+
+The main advantages of PM2 include:
+\begin{itemize}[nolistsep]
+  \item \textbf{Process Management}: The ability to run applications in daemon mode, automatically restart when they crash, and update without downtime.
+  \item \textbf{Load Balancing}: Distributing load among multiple application instances to increase throughput.
+  \item \textbf{Monitoring}: Providing a dashboard to monitor CPU usage, memory, and other metrics in real-time.
+  \item \textbf{Log Management}: Managing and rotating log files to prevent excessive disk usage.
+\end{itemize}

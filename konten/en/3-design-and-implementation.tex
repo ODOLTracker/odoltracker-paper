@@ -1,0 +1,303 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Architecture}
+\label{sec:architecture}
+
+In this chapter, the methods used in this research will be explained. The methods include the stages carried out in this research, such as data collection, data analysis, and data processing. This explanation will help in understanding the research process that was conducted.
+
+\subsection{Block Diagram}
+\label{sec:blockdiagram}
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.17]{gambar/bab3-block-diagram-en.jpeg}
+
+  \caption{Block Diagram of the Overdimension Vehicle Detection System}
+  \label{fig:blockdiagrammethod}
+\end{figure}
+
+Figure \ref{fig:blockdiagrammethod} shows a block diagram that explains the components of the overdimension vehicle detection system development, which is divided into 3 main parts: software, cloud, and hardware. The software part itself is divided into 3 components: machine learning, backend, and mobile application. The following is an explanation of each part of the block diagram:
+
+\subsubsection{Software - Machine Learning}
+
+In this section, several stages are carried out, namely:
+\begin{enumerate}[nolistsep]
+  \item Data acquisition
+  \item Data labeling
+  \item Data preprocessing
+  \item Data training
+\end{enumerate}
+
+\textbf{Data acquisition} was carried out by collecting video data of passing vehicles. Data acquisition was conducted twice, at Tanjung Perak Road and at Dupak 2 Toll Gate after obtaining permission from the Department of Transportation as the agency handling overdimension violations and PT. Jasa Marga as the toll road manager. The video data collected would later be split into several frames. These frames would be used as training data for the machine learning model after going through the labeling process. Figure \ref{fig:acquisitiondata} shows the data acquisition process that was carried out.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.02]{gambar/bab3-acquisition-data-perak.png}
+  \includegraphics[scale=0.13]{gambar/bab3-acquisition-data-dupak.png}
+  \caption{\centering Data Acquisition Process, (left) Tanjung Perak Road, (right) Dupak 2 Toll Gate}
+  \label{fig:acquisitiondata}
+\end{figure}
+
+\textbf{Data labeling} was done by assigning labels to the acquired data. The labels given were the type of vehicle passing and whether the vehicle was classified as overdimension or not. This labeling process was carried out using the Roboflow application. Figure \ref{fig:labellingdata} shows the data labeling process that was carried out.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.06]{gambar/bab3-labelling-data-nonoverdimension.png}
+  \includegraphics[scale=0.06]{gambar/bab3-labelling-data-overdimension.png}
+
+  \caption{\centering Data Labeling Process using the Roboflow application, (top) Non-Overdimension Vehicle, (bottom) Overdimension Vehicle}
+  \label{fig:labellingdata}
+\end{figure}
+
+In this research, overdimension vehicles were labeled as \emph{truck} and their overdimension cargo was labeled using polygons. Meanwhile, non-overdimension vehicles were labeled as \emph{car} (so the model would not misclassify trucks as cars) with regular bounding boxes. An illustration of the data labeling can be seen in Figure \ref{fig:labellingdataillustration}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.13]{gambar/bab3-truck-detection-method.png}
+
+  \caption{\centering Data Labeling Illustration, (left) Non-Overdimension Vehicle, (right) Overdimension Vehicle}
+  \label{fig:labellingdataillustration}
+\end{figure}
+
+\textbf{Data preprocessing} was performed after the data had been labeled. This aimed to prepare the data that would be used as training data for the machine learning model, in this case, SSD-MobileNet-V2. Initially, the labeled data would have its orientation adjusted and be resized to 300x300 pixels. Data augmentation was also performed by applying brightness adjustments from -12\% to 12\% and exposure adjustments from -10\% to 10\%.
+
+After that, the data would be divided into training and validation data with an 80:20 ratio. Figure \ref{fig:citraasli} shows the original image that would be preprocessed, while Figure \ref{fig:preprocessingdata} shows the data preprocessing process that was carried out.
+
+\begin{figure}[h]
+  \centering
+
+  \includegraphics[scale=0.3]{gambar/bab3-citra-asli.jpg}
+  \caption{Image data before preprocessing}
+  \label{fig:citraasli}
+  
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.22]{gambar/bab3-citra-300x300.jpg}
+  \includegraphics[scale=0.22]{gambar/bab3-citra-300x300-brightness-up.jpg}
+  \includegraphics[scale=0.22]{gambar/bab3-citra-300x300-brightness-down.jpg}
+
+  \caption{\centering Image data after preprocessing, (left) after being resized to 300x300, (center) 300x300 image with increased brightness and exposure, (right) 300x300 image with decreased brightness and exposure}
+  \label{fig:preprocessingdata}
+\end{figure}
+
+\textbf{Data training} was carried out after the data had been prepared. The prepared training data would be used to train the machine learning model using the PyTorch framework. The model used was SSD-MobileNet-V2 that had been previously trained (pre-trained model) using the COCO dataset. This training process would produce a model that could be used to detect overdimension vehicles.
+
+\subsection{\textbf{Hardware}}
+
+In this section, several stages were carried out, namely:
+\begin{enumerate}[nolistsep]
+  \item Implementation of training results on Edge Devices in:
+  \begin{enumerate}[nolistsep]
+    \item Jetson Nano, and
+    \item Beelink Gemini T34
+  \end{enumerate} 
+  \item Design and printing of device containers
+\end{enumerate}
+
+\textbf{Implementation of training results on Edge Devices} was conducted after the machine learning model was trained. The trained model would be implemented on prepared Edge Devices, namely Jetson Nano and Beelink Gemini T34. This implementation aimed to detect overdimension vehicles in real-time and integrate the detection results with the existing system. Figure \ref{fig:implementationedgedevice} shows the implementation results of the machine learning model on Edge Devices.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.18]{gambar/bab3-implementasi-di-jetson.png}
+  \includegraphics[scale=0.18]{gambar/bab3-implementasi-di-beelink.png}
+
+  \caption{\centering Implementation of Machine Learning Model on Edge Devices, (left) Jetson Nano, (right) Beelink Gemini T34}
+  \label{fig:implementationedgedevice}
+\end{figure}
+
+\textbf{Design and printing of device containers} was done after the machine learning model was successfully implemented on the Edge Devices. These containers serve as a place to house the Edge Devices and the camera used to detect overdimension vehicles. Figures \ref{fig:designcontainercamera} and \ref{fig:designcontainerjetson} show the designs of the camera container and Jetson Nano container that were created. For the Beelink Gemini T34, after further testing, it was found that this device had limitations in performing real-time model inference because it relied solely on the CPU. Despite optimizations, inference performance remained inadequate for real-time detection applications, so the development of a specialized container for this device was not continued.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-depan-case-camera.jpeg}
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-samping-case-camera.jpeg}
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-belakang-case-camera.jpeg}
+
+  \caption{\centering Camera Container Design, (left) Front View, (middle) Side View, (right) Back View}
+  \label{fig:designcontainercamera}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-depan-case-jnano.jpeg}
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-samping-case-jnano.jpeg}
+  \includegraphics[scale=0.08]{gambar/bab3-tampak-bawah-case-jnano.jpeg}
+
+  \caption{\centering Jetson Nano Container Design, (left) Front View, (middle) Side View, (right) Bottom View}
+  \label{fig:designcontainerjetson}
+\end{figure}
+
+After being designed, the containers were then printed using a 3D printer. Figure \ref{fig:printcontainer} shows the printing process of the camera container and Jetson Nano container.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.08,angle=-90]{gambar/bab3-case-camera-printed.jpg}
+  \includegraphics[scale=0.08,angle=-90]{gambar/bab3-case-jnano-printed.jpg}
+
+  \caption{\centering Printed containers, (left) Camera Container, (right) Jetson Nano Container}
+  \label{fig:printcontainer}
+\end{figure}
+
+\subsection{\textbf{Software - Backend}}
+
+In this section, several stages were carried out, namely:
+\begin{enumerate}[nolistsep]
+  \item Creating a list of application features
+  \item Database design
+  \item Class diagram design
+  \item Class diagram implementation
+\end{enumerate}
+
+\textbf{Creating a list of application features} was done to determine the features that would be available in the application, thus facilitating the database design and class diagram design. The features in this application include:
+\begin{itemize}[nolistsep]
+  \item Account registration
+  \item Login
+  \item Different dashboards for admin and operator
+  \item Data analytics
+  \item Notifications
+  \item Violation verification
+  \item Profile editing
+  \item Password changing
+  \item Forgot password
+\end{itemize}
+
+Therefore, it can be concluded that this application has 2 types of users, namely admin and operator. Admin has full access to the application, while operators can only access certain features, for example, operators cannot retrieve all users registered in the application whereas admin can.
+
+\textbf{Database design} was done to determine the database structure to be used in the application. The database used is a relational database using PostgreSQL. The tables in this database include:
+\begin{itemize}[nolistsep]
+  \item Users Table
+  \item TollGates Table
+  \item Notifications Table
+  \item VehicleDetections Table
+  \item Images Table
+\end{itemize}
+
+Figure \ref{fig:databasedesign} shows the database design that was created using the dbdiagram.io website. This database design illustrates the relationships between tables in the database. These tables have relationships with each other, allowing them to be interconnected and facilitating data processing.
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.25]{gambar/bab3-desain-database.png}
+
+  \caption{Database Design}
+  \label{fig:databasedesign}
+\end{figure}
+From the tables in the database, it can be seen that:
+
+\begin{itemize}[nolistsep]
+  \item The Users table contains data of application users, both admin and operators. This table has a one-to-many relationship with the VehicleDetections and Notifications tables
+  \item The TollGates table contains data of existing toll gates. This table has a one-to-many relationship with the VehicleDetections table
+  \item The Notifications table contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
+  \item The VehicleDetections table contains vehicle detection data in the application. In this table, the status of vehicles is verified, whether the vehicle is overdimension or not. This table has a one-to-many relationship with the Images table
+  \item The Images table contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
+\end{itemize}
+
+\textbf{Class diagram design} was done to determine the class structure to be used in the application. This class diagram illustrates the relationships between classes in the application. These classes have relationships with each other, allowing them to be interconnected and facilitating data processing. Figure \ref{fig:classdiagram} shows the class diagram design that was created using the app.diagrams.net website.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.3]{gambar/bab3-class-diagram.png}
+
+  \caption{Class Diagram Design}
+  \label{fig:classdiagram}
+\end{figure}
+From the classes in the class diagram, it can be seen that:
+\begin{itemize}[nolistsep]
+  \item The User class contains data of application users, both admin and operators. This class has a one-to-many relationship with the VehicleDetection and Notification classes
+  \item The TollGate class contains data of existing toll gates. This class has a one-to-many relationship with the VehicleDetection class
+  \item The Notification class contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
+  \item The VehicleDetection class contains vehicle detection data in the application. In this class, the status of vehicles is verified, whether the vehicle is overdimension or not. This class has a one-to-many relationship with the Image class
+  \item The Image class contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
+\end{itemize}
+
+\textbf{Class diagram implementation} was carried out after the class diagram was completed. The classes in the class diagram would be implemented into program code. This program code was written using the JavaScript programming language with the Express.js framework, Sequelize ORM, and Cloudinary cloud storage. This program code would be used to manage data in the database, as well as manage data in Cloudinary cloud storage. After the endpoints were completed, each endpoint would be tested using Postman to ensure that the endpoint could function properly.
+
+\subsection{\textbf{Cloud}}
+
+In this section, several stages were carried out, namely:
+\begin{enumerate}[nolistsep]
+  \item Implementation of database in the cloud
+  \item Implementation of backend in the cloud
+\end{enumerate}
+
+\textbf{Implementation of database in the cloud} was done after the database design was completed. The database from the design would be implemented in the cloud so that it could be accessed anytime and anywhere. This database was implemented using PostgreSQL cloud database with the help of pgAdmin4 management tool.
+
+\textbf{Implementation of backend in the cloud} was done after the database implementation was completed. The backend from the class diagram design would be implemented in the cloud so that the backend functions could be accessed anytime and anywhere. This backend was implemented using a Virtual Private Server with the Biznet Gio Neo Lite cloud platform.
+
+\subsection{\textbf{Software - Mobile Apps}}
+
+In this section, several stages were carried out, namely:
+\begin{enumerate}[nolistsep]
+  \item Wireframe and Mockup Design
+  \item Application prototype creation
+  \item Backend integration with application
+  \item Application testing
+\end{enumerate}
+
+\textbf{Wireframe and Mockup Design} was done to determine the appearance of the application to be created. This design would help in creating an application that meets user needs. Figure \ref{fig:wireframe} shows the wireframe and mockup design that was created.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.13]{gambar/bab3-color-palette.png}
+  \includegraphics[scale=0.13]{gambar/bab3-mockup.png}
+
+  \caption{\centering Wireframe and Mockup Design, (left) Color Palette, (right) Mockup}
+  \label{fig:wireframe}
+\end{figure}
+
+\textbf{Application prototype creation} and \textbf{Backend integration with application} were done after the wireframe, mockup, and backend designs were completed. This prototype would help in creating an application that meets user needs. Figure \ref{fig:prototype} shows the application prototype that was created.
+
+\begin{figure}[htbp]
+  \centering
+
+  \includegraphics[scale=0.1]{gambar/bab3-login.jpeg}
+  \includegraphics[scale=0.1]{gambar/bab3-register.jpeg}
+  \includegraphics[scale=0.1]{gambar/bab3-homepage.jpeg}
+  \includegraphics[scale=0.1]{gambar/bab3-notification.jpeg}
+  \includegraphics[scale=0.1]{gambar/bab3-profile.jpeg}
+
+  \caption{Application Prototype (From top left clockwise: Login, Register, Dashboard, Notification, Profile)}
+  \label{fig:prototype}
+\end{figure}
+
+\textbf{Application testing} was done after the application was integrated with the backend. This testing aimed to ensure that the application could run properly and meet user needs. This testing was done by testing each feature in the application in an end-to-end manner. Table \ref{tab:testingapp} shows the results of application testing that was carried out.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{Feature} & \textbf{Scenario} & \textbf{Status} \\
+  \hline
+  \multirow{2}{*}{Registration} & Registration with valid data & Success \\
+  \cline{2-3}
+  & Registration with invalid data & Success \\
+  \hline
+  \multirow{2}{*}{Login} & Login with correct credentials & Success \\
+  \cline{2-3}
+  & Login with incorrect credentials & Success \\
+  \hline
+  \multirow{2}{*}{Dashboard} & Display violation data & Success \\
+  \cline{2-3}
+  & Update data automatically & Success \\
+  \hline
+  \multirow{2}{*}{Notification} & Receive violation notifications & Success \\
+  \cline{2-3}
+  & Display notification history & Success \\
+  \hline
+  \multirow{2}{*}{Profile} & Display user data & Success \\
+  \cline{2-3}
+  & Edit user data & Success \\
+  \hline
+  \end{tabular}
+  \caption{Application feature testing results}
+  \label{tab:testingapp}
+\end{table}
