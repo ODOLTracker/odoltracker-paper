@@ -192,11 +192,11 @@ Figure \ref{fig:databasedesign} shows the database design that was created using
 From the tables in the database, it can be seen that:
 
 \begin{itemize}[nolistsep]
-  \item The Users table contains data of application users, both admin and operators. This table has a one-to-many relationship with the VehicleDetections and Notifications tables
-  \item The TollGates table contains data of existing toll gates. This table has a one-to-many relationship with the VehicleDetections table
-  \item The Notifications table contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
-  \item The VehicleDetections table contains vehicle detection data in the application. In this table, the status of vehicles is verified, whether the vehicle is overdimension or not. This table has a one-to-many relationship with the Images table
-  \item The Images table contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
+  \item The 'Users' table contains data of application users, both admin and operators. This table has a one-to-many relationship with the VehicleDetections and Notifications tables
+  \item The 'TollGates' table contains data of existing toll gates. This table has a one-to-many relationship with the VehicleDetections table
+  \item The 'Notifications' table contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
+  \item The 'VehicleDetections' table contains vehicle detection data in the application. In this table, the status of vehicles is verified, whether the vehicle is overdimension or not. This table has a one-to-many relationship with the Images table
+  \item The 'Images' table contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
 \end{itemize}
 
 \textbf{Class diagram design} was done to determine the class structure to be used in the application. This class diagram illustrates the relationships between classes in the application. These classes have relationships with each other, allowing them to be interconnected and facilitating data processing. Figure \ref{fig:classdiagram} shows the class diagram design that was created using the app.diagrams.net website.
@@ -211,11 +211,11 @@ From the tables in the database, it can be seen that:
 \end{figure}
 From the classes in the class diagram, it can be seen that:
 \begin{itemize}[nolistsep]
-  \item The User class contains data of application users, both admin and operators. This class has a one-to-many relationship with the VehicleDetection and Notification classes
-  \item The TollGate class contains data of existing toll gates. This class has a one-to-many relationship with the VehicleDetection class
-  \item The Notification class contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
-  \item The VehicleDetection class contains vehicle detection data in the application. In this class, the status of vehicles is verified, whether the vehicle is overdimension or not. This class has a one-to-many relationship with the Image class
-  \item The Image class contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
+  \item The 'Users' class contains data of application users, both admin and operators. This class has a one-to-many relationship with the VehicleDetection and Notification classes
+  \item The 'TollGates' class contains data of existing toll gates. This class has a one-to-many relationship with the VehicleDetection class
+  \item The 'Notifications' class contains notification data in the application. This includes notifications sent by the system and notifications sent by admin to operators.
+  \item The 'VehicleDetections' class contains vehicle detection data in the application. In this class, the status of vehicles is verified, whether the vehicle is overdimension or not. This class has a one-to-many relationship with the Image class
+  \item The 'Images' class contains image data of detected overdimension vehicles. Images are not stored in the database, but only store links to images in Cloudinary cloud storage.
 \end{itemize}
 
 \textbf{Class diagram implementation} was carried out after the class diagram was completed. The classes in the class diagram would be implemented into program code. This program code was written using the JavaScript programming language with the Express.js framework, Sequelize ORM, and Cloudinary cloud storage. This program code would be used to manage data in the database, as well as manage data in Cloudinary cloud storage. After the endpoints were completed, each endpoint would be tested using Postman to ensure that the endpoint could function properly.
@@ -239,7 +239,7 @@ In this section, several stages were carried out, namely:
   \item Wireframe and Mockup Design
   \item Application prototype creation
   \item Backend integration with application
-  \item Application testing
+  % \item Application testing
 \end{enumerate}
 
 \textbf{Wireframe and Mockup Design} was done to determine the appearance of the application to be created. This design would help in creating an application that meets user needs. Figure \ref{fig:wireframe} shows the wireframe and mockup design that was created.
@@ -269,35 +269,35 @@ In this section, several stages were carried out, namely:
   \label{fig:prototype}
 \end{figure}
 
-\textbf{Application testing} was done after the application was integrated with the backend. This testing aimed to ensure that the application could run properly and meet user needs. This testing was done by testing each feature in the application in an end-to-end manner. Table \ref{tab:testingapp} shows the results of application testing that was carried out.
+% \textbf{Application testing} was done after the application was integrated with the backend. This testing aimed to ensure that the application could run properly and meet user needs. This testing was done by testing each feature in the application in an end-to-end manner. Table \ref{tab:testingapp} shows the results of application testing that was carried out.
 
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}{|l|l|l|}
-  \hline
-  \textbf{Feature} & \textbf{Scenario} & \textbf{Status} \\
-  \hline
-  \multirow{2}{*}{Registration} & Registration with valid data & Success \\
-  \cline{2-3}
-  & Registration with invalid data & Success \\
-  \hline
-  \multirow{2}{*}{Login} & Login with correct credentials & Success \\
-  \cline{2-3}
-  & Login with incorrect credentials & Success \\
-  \hline
-  \multirow{2}{*}{Dashboard} & Display violation data & Success \\
-  \cline{2-3}
-  & Update data automatically & Success \\
-  \hline
-  \multirow{2}{*}{Notification} & Receive violation notifications & Success \\
-  \cline{2-3}
-  & Display notification history & Success \\
-  \hline
-  \multirow{2}{*}{Profile} & Display user data & Success \\
-  \cline{2-3}
-  & Edit user data & Success \\
-  \hline
-  \end{tabular}
-  \caption{Application feature testing results}
-  \label{tab:testingapp}
-\end{table}
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{|l|l|l|}
+%   \hline
+%   \textbf{Feature} & \textbf{Scenario} & \textbf{Status} \\
+%   \hline
+%   \multirow{2}{*}{Registration} & Registration with valid data & Success \\
+%   \cline{2-3}
+%   & Registration with invalid data & Success \\
+%   \hline
+%   \multirow{2}{*}{Login} & Login with correct credentials & Success \\
+%   \cline{2-3}
+%   & Login with incorrect credentials & Success \\
+%   \hline
+%   \multirow{2}{*}{Dashboard} & Display violation data & Success \\
+%   \cline{2-3}
+%   & Update data automatically & Success \\
+%   \hline
+%   \multirow{2}{*}{Notification} & Receive violation notifications & Success \\
+%   \cline{2-3}
+%   & Display notification history & Success \\
+%   \hline
+%   \multirow{2}{*}{Profile} & Display user data & Success \\
+%   \cline{2-3}
+%   & Edit user data & Success \\
+%   \hline
+%   \end{tabular}
+%   \caption{Application feature testing results}
+%   \label{tab:testingapp}
+% \end{table}
