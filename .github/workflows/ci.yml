@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Compile document indo paper
-        uses: xu-cheng/latex-action@3.1.0
+        uses: xu-cheng/latex-action@3.3.0
         with:
           root_file: paper-id.tex
 
       - name: Compile document english paper
-        uses: xu-cheng/latex-action@3.1.0
+        uses: xu-cheng/latex-action@3.3.0
         with:
           root_file: paper-en.tex
 
