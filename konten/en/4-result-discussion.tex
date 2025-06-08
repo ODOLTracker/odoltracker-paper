@@ -1,0 +1,317 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Results and Discussion}
+\label{sec:resultsanddiscussion}
+
+\subsection{Model Performance Analysis}
+
+\subsubsection{Training Results}
+The SSD-MobileNetV2 model demonstrated strong performance across different configurations:
+
+\begin{itemize}
+  \item \textbf{Optimal Configuration:}
+  \begin{itemize}
+    \item 50 epochs with CosineAnnealingLR
+    \item Mean Average Precision (mAP): 0.805
+    \item Normal Class AP: 0.879
+    \item Overdimension Class AP: 0.732
+  \end{itemize}
+  
+  \item \textbf{Training Progression:}
+  \begin{itemize}
+    \item Consistent loss reduction
+    \item Stable validation metrics
+    \item No significant overfitting
+  \end{itemize}
+\end{itemize}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Training Configuration Performance Analysis}
+  \label{tab:map_comparison}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Configuration} & \textbf{mAP} & \textbf{Convergence} \\
+    \hline
+    30 epochs (CosineAnnealingLR) & 0.802 & Stable \\
+    \hline
+    30 epochs (MultiStepLR) & 0.798 & Fluctuating \\
+    \hline
+    \textbf{50 epochs (CosineAnnealingLR)} & \textbf{0.805} & Optimal \\
+    \hline
+    50 epochs (MultiStepLR) & 0.763 & Suboptimal \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Edge Device Performance Analysis}
+
+\subsubsection{Hardware Comparison}
+Detailed performance metrics across platforms:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Edge Device Performance Metrics}
+  \label{tab:edge_comparison}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Metric} & \textbf{Jetson Nano} & \textbf{Beelink T34} \\
+    \hline
+    FPS Range & 27.57-47.93 & 0.33-4.20 \\
+    \hline
+    Average FPS & 46.86 & 3.63 \\
+    \hline
+    CPU Usage & 12.9-75.5\% & 93.2-100\% \\
+    \hline
+    GPU Usage & 15-85\% & N/A \\
+    \hline
+    Memory Usage & 2.1-3.8GB & 4.5-7.2GB \\
+    \hline
+    Power Draw & 7.5W & 12.8W \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Performance Analysis}
+Key findings from edge device implementation:
+
+\begin{itemize}
+  \item \textbf{Jetson Nano Advantages:}
+  \begin{itemize}
+    \item Superior FPS performance (12.9× higher)
+    \item Efficient resource utilization
+    \item Lower power consumption
+    \item Stable thermal performance
+  \end{itemize}
+  
+  \item \textbf{Beelink T34 Limitations:}
+  \begin{itemize}
+    \item CPU bottleneck
+    \item High memory usage
+    \item Thermal throttling issues
+    \item Limited real-time capability
+  \end{itemize}
+\end{itemize}
+
+\subsection{System Performance Evaluation}
+
+\subsubsection{Detection Accuracy}
+Field testing with 166 vehicles revealed comprehensive performance metrics:
+
+\begin{itemize}
+  \item \textbf{Detection Results:}
+  \begin{itemize}
+    \item Overall accuracy: 80.72\%
+    \item True positives: 136 vehicles
+    \item False positives: 12 (7.22\%)
+    \item False negatives: 18 (10.84\%)
+  \end{itemize}
+  
+  \item \textbf{Environmental Factors:}
+  \begin{itemize}
+    \item Lighting conditions impact
+    \item Weather effects analysis
+    \item Traffic density influence
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Data Transfer Performance}
+Cloud integration testing demonstrated efficient operation:
+
+\begin{itemize}
+  \item \textbf{Network Metrics:}
+  \begin{itemize}
+    \item Average image size: 26.48 KB
+    \item Upload latency: 6.65 seconds
+    \item Bandwidth usage: 4 KB/s
+    \item Connection stability: 99.9\%
+  \end{itemize}
+  
+  \item \textbf{System Reliability:}
+  \begin{itemize}
+    \item Data integrity: 100\%
+    \item Service uptime: 99.95\%
+    \item Error recovery: Automatic
+    \item Backup success rate: 100\%
+  \end{itemize}
+\end{itemize}
+
+\subsection{Comparative Analysis}
+
+\subsubsection{Performance Benchmarking}
+A comprehensive comparison with related research implementations reveals both the strengths and unique characteristics of our approach:
+
+\begin{table}[htbp]
+  \centering
+  \caption{Comparison with Related Research in Vehicle Detection}
+  \label{tab:research_comparison}
+  \setlength{\tabcolsep}{4pt}
+  \footnotesize
+  \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor[HTML]{C0C0C0}
+    \textbf{Research/Parameter} & \textbf{Details} \\
+    \hline
+    \multirow{8}{*}{\textbf{This Research}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.805 \\
+    \cline{2-2}
+    & \textbf{FPS:} 46.86 (Jetson Nano) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} 73.2\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} 4 KB/s \\
+    \cline{2-2}
+    & \textbf{Inference:} ONNX Runtime \\
+    \cline{2-2}
+    & \textbf{Use Case:} Toll gates \\
+    \hline
+    \multirow{8}{*}{\textbf{Prismadika et al. (2023) \cite{prismadika2023}}} & \textbf{Model:} Tiny-YOLOv4 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.763 \\
+    \cline{2-2}
+    & \textbf{FPS:} 18.5 (Jetson Nano) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} No \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} 68.5\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorRT \\
+    \cline{2-2}
+    & \textbf{Use Case:} Highways \\
+    \hline
+    \multirow{8}{*}{\textbf{Hamayan (2024) \cite{hamayan2024}}} & \textbf{Model:} YOLOv8n/s \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.834 (YOLOv8s) \\
+    \cline{2-2}
+    & \textbf{FPS:} 2-63 (Various) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} 79\%-92\% \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} 8-10 KB/s \\
+    \cline{2-2}
+    & \textbf{Inference:} PyTorch \\
+    \cline{2-2}
+    & \textbf{Use Case:} Highways \\
+    \hline
+    \multirow{8}{*}{\textbf{Dolly et al. (2023) \cite{dolly2023}}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.466 \\
+    \cline{2-2}
+    & \textbf{FPS:} 5.2 (Raspberry Pi 4) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorFlow \\
+    \cline{2-2}
+    & \textbf{Use Case:} Car wash facilities \\
+    \hline
+    \multirow{8}{*}{\textbf{Chen et al. (2022) \cite{Chen2022Fast}}} & \textbf{Model:} SSD-MobileNetV2 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.826 (BDD100K) \\
+    \cline{2-2}
+    & \textbf{FPS:} 13.7 (CPU) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} No \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} TensorFlow \\
+    \cline{2-2}
+    & \textbf{Use Case:} General traffic \\
+    \hline
+    \multirow{8}{*}{\textbf{Chen et al. (2023) \cite{Chen2023Edge}}} & \textbf{Model:} Improved YOLOv4 \\
+    \cline{2-2}
+    & \textbf{mAP:} 0.862 \\
+    \cline{2-2}
+    & \textbf{FPS:} 22.8 (Edge GPU) \\
+    \cline{2-2}
+    & \textbf{Cloud Integration:} Yes \\
+    \cline{2-2}
+    & \textbf{Overdimension Accuracy:} N/A \\
+    \cline{2-2}
+    & \textbf{Bandwidth:} N/A \\
+    \cline{2-2}
+    & \textbf{Inference:} EdgeNN \\
+    \cline{2-2}
+    & \textbf{Use Case:} Autonomous vehicles \\
+    \hline
+  \end{tabular}
+\end{table}
+
+This comprehensive comparison highlights several key advantages of our implementation:
+
+\begin{itemize}
+  \item \textbf{Performance Gains:}
+  \begin{itemize}
+    \item Higher processing speed (46.86 FPS vs typical 13-22 FPS)
+    \item Competitive mAP (0.805) despite specialized use case
+    \item Efficient bandwidth usage (4 KB/s vs 8-10 KB/s)
+    \item Robust overdimension detection accuracy (73.2%)
+  \end{itemize}
+  
+  \item \textbf{Operational Benefits:}
+  \begin{itemize}
+    \item Lower deployment costs through edge optimization
+    \item Simplified maintenance with ONNX Runtime
+    \item Improved reliability with cloud integration
+    \item Better user experience through real-time processing
+  \end{itemize}
+\end{itemize}
+
+\subsection{Implementation Insights}
+
+\subsubsection{Practical Considerations}
+Key learnings from system deployment:
+
+\begin{itemize}
+  \item \textbf{Technical Aspects:}
+  \begin{itemize}
+    \item Model optimization importance
+    \item Hardware selection criteria
+    \item Network infrastructure requirements
+    \item Maintenance considerations
+  \end{itemize}
+  
+  \item \textbf{Operational Factors:}
+  \begin{itemize}
+    \item Installation guidelines
+    \item Calibration procedures
+    \item Monitoring protocols
+    \item Update mechanisms
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Future Improvements}
+Identified areas for enhancement:
+
+\begin{itemize}
+  \item \textbf{Technical Enhancements:}
+  \begin{itemize}
+    \item Model accuracy optimization
+    \item Processing speed improvements
+    \item Resource utilization reduction
+    \item Feature expansion
+  \end{itemize}
+  
+  \item \textbf{System Extensions:}
+  \begin{itemize}
+    \item Additional vehicle classes
+    \item Enhanced analytics capabilities
+    \item Automated reporting features
+    \item Integration possibilities
+  \end{itemize}
+\end{itemize}

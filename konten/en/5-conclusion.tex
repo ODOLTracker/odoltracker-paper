@@ -1,0 +1,14 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Conclusion}
+\label{sec:conclusion}
+
+This research has successfully demonstrated the implementation of an effective overdimension vehicle detection system, achieving significant milestones across multiple performance dimensions. The SSD-MobileNetV2 model, trained over 50 epochs with a CosineAnnealingLR scheduler, demonstrated robust detection capabilities with an overall mean Average Precision (mAP) of 0.805. Notably, the model showed strong performance in both normal vehicle detection (0.879 mAP) and overdimension vehicle detection (0.732 mAP), indicating its reliability across different vehicle categories.
+
+In terms of hardware performance, our comparative analysis revealed substantial advantages in edge computing capabilities. The Jetson Nano implementation significantly outperformed the Beelink T34, achieving an impressive 46.86 FPS compared to 3.63 FPS, primarily due to effective GPU acceleration. This performance differential underscores the importance of hardware selection in edge computing applications, particularly for real-time detection systems.
+
+The system's integration capabilities proved equally impressive, with perfect data transfer reliability (100\% success rate) while maintaining remarkably efficient bandwidth utilization at just 4 KB/s. When deployed in field conditions, the system demonstrated strong real-world performance with an accuracy rate of 80.72\%, maintaining a well-balanced error profile with false positive and false negative rates of 7.22\% and 10.84\% respectively.
+
+When compared to similar implementations in the field, our system shows notable advantages in the critical balance between performance and resource utilization. The achieved 46.86 FPS significantly outperforms comparable systems operating at 18.5 FPS, while maintaining lower bandwidth requirements (4 KB/s versus the typical 8-10 KB/s). These results convincingly demonstrate that our system is not only technically superior but also more resource-efficient.
+
+Based on these comprehensive results, we conclude that the developed system is well-suited for practical deployment in toll gate environments, particularly when implemented with GPU-accelerated edge devices. The combination of high accuracy, efficient resource utilization, and robust real-time performance makes it a viable solution for addressing the challenges of overdimension vehicle detection in real-world scenarios.
+

@@ -1,0 +1,79 @@
+% Ubah judul dan label berikut sesuai dengan yang diinginkan.
+\section{Literature Review}
+\label{sec:literaturereview}
+
+\subsection{Evolution of Vehicle Detection Systems}
+
+The development of vehicle detection systems has progressed significantly, particularly in addressing overdimension detection challenges. Early detection systems primarily relied on physical sensors and manual measurements, which presented significant limitations in both accuracy and coverage \cite{Priambudi2020Pre-study}. Historical approaches to vehicle weight and dimension monitoring have demonstrated considerable impact on road infrastructure maintenance and safety \cite{cebon1989assessment, huang2004pavement}.
+
+Modern solutions have embraced computer vision approaches, leveraging deep learning technologies for enhanced detection capabilities. Notable among these advancements, Prismadika et al. \cite{prismadika2023} achieved remarkable results using Tiny-YOLOv4, demonstrating 98.2\% accuracy with real-time detection at 13 FPS on standard hardware. Their work particularly focused on optimizing model architecture for resource-constrained environments. Building on this foundation, Hamayan \cite{hamayan2024} explored various YOLOv8 variants, achieving accuracy rates between 79-92\% with FPS ranging from 2-63, highlighting the correlation between computational resources and detection performance in edge computing scenarios. Additionally, Dolly et al. \cite{dolly2023} demonstrated the feasibility of deploying complex detection models on low-power devices, implementing SSD-MobileNetV2 on Raspberry Pi 4 with 46.6\% accuracy for vehicle counting.
+
+Recent trends in the field show an increasing focus on edge-based solutions that effectively balance processing requirements with real-time performance demands \cite{Chen2023Edge, aws2024}. This shift towards edge computing represents a significant evolution in system architecture, enabling more efficient and responsive detection systems.
+
+\subsection{Impact of Overloaded Vehicles}
+
+The effects of overdimension and overloaded vehicles extend far beyond immediate safety concerns, creating a cascade of impacts across multiple domains. Infrastructure degradation represents a primary concern, manifesting through accelerated pavement wear, increased structural stress on bridges, and escalating maintenance costs. These physical impacts translate directly into significant economic consequences, including substantial infrastructure repair expenses, increased traffic congestion costs, and widespread logistics inefficiencies throughout the transportation network.
+
+The safety implications of overdimension vehicles are equally significant. Beyond the direct increased risk of accidents, these vehicles pose unique challenges for emergency response teams and raise broader public safety concerns. The combination of these factors creates a compelling case for improved detection and monitoring systems.
+
+\subsection{Regulatory Framework}
+
+\subsubsection{Government Regulations}
+Indonesian transportation regulations, particularly Government Regulation 55/2012 and subsequent ministerial regulations \cite{kemenhub2015, kemenhub2016}, establish comprehensive guidelines for vehicle dimensions. Recent statistics from the Indonesian Bureau of Statistics indicate a growing concern with the increasing number of vehicles \cite{bps2023}, while studies show significant impacts of overloaded vehicles on toll road accidents \cite{odol2020}. The regulatory framework specifies precise dimensional limits: standard vehicles must not exceed 12,000mm in length, while single buses are limited to 13,500mm, and vehicles with trailers must remain under 18,000mm. Width and height restrictions are equally specific, with maximum width set at 2,500mm and height limited to 4,200mm or 1.7 times the width, whichever is less. Additionally, vehicles must maintain a minimum departure angle of 8 degrees.
+
+These regulations are complemented by comprehensive safety requirements encompassing structural integrity standards, load distribution guidelines, and safety marking requirements. This regulatory framework forms the foundation for enforcement and monitoring strategies.
+
+\subsection{Deep Learning Architectures}
+
+\subsubsection{Evolution of Object Detection Models}
+The progression of deep learning in vehicle detection has witnessed several key developmental phases. The first generation (2012-2015) introduced foundational approaches including Region-based CNNs, sliding window techniques, and two-stage detection pipelines. The second generation (2015-2018) brought significant advances through single-shot detectors, anchor-based predictions, and feature pyramid networks. Current generation systems (2018-present) leverage transformer-based architectures, anchor-free approaches, and sophisticated self-attention mechanisms.
+
+\subsubsection{SSD (Single Shot MultiBox Detector)}
+SSD \cite{Chen2022Fast} represents a significant advancement in object detection, building upon the evolution from early perceptrons \cite{rosenblatt1958perceptron} to modern convolutional networks \cite{yannlecun1998}. The architecture incorporates several innovative features, including multi-scale feature maps for varied object sizes, single-step detection and classification, and efficient anchor box prediction. These architectural elements contribute to significant performance advantages, including real-time processing capability \cite{Rahmaniar2021Real-Time}, reduced computational overhead, and end-to-end training optimization. The implementation benefits extend to simplified deployment pipelines, reduced memory requirements, and efficient inference on edge devices.
+
+\subsubsection{MobileNetV2 Integration}
+The integration of MobileNetV2 with SSD architecture, building upon advances in network architectures \cite{kaiminghe2015, szegedy2015} and training techniques \cite{ioffe2015}, has yielded substantial improvements in model efficiency. The architecture introduces key innovations through its inverted residual structure, linear bottlenecks, and lightweight design. These architectural improvements translate into significant performance optimizations, including reduced parameter counts, improved inference speeds, and enhanced feature extraction capabilities.
+
+\subsection{Edge Computing Framework}
+
+Edge computing represents a paradigm shift in processing architecture \cite{Chen2023Edge, aws2024}, introducing several critical advantages to vehicle detection systems. The primary system benefits include significantly reduced latency through local processing, optimized bandwidth utilization, enhanced data privacy and security, and improved real-time processing capability. Implementation considerations encompass careful attention to resource allocation strategies, power consumption optimization, network topology design, and scalability planning.
+
+\subsection{Environmental Factors in Detection}
+
+Vehicle detection systems must account for various environmental challenges that significantly impact their performance. Lighting conditions present a particular challenge, requiring systems to adapt to day/night variations, manage shadow effects, and handle glare effectively. Weather impacts introduce additional complexity through rain and fog effects, temperature variations, and wind considerations. Infrastructure factors also play a crucial role, necessitating careful attention to camera placement optimization, field of view considerations, and ongoing maintenance requirements.
+
+\subsection{Performance Metrics}
+
+The evaluation of detection systems requires comprehensive metrics to assess their effectiveness. Detection accuracy is quantified through several key measures:
+
+\begin{equation}
+\mbox{Precision} = \frac{\mbox{TP}}{\mbox{TP} + \mbox{FP}}
+\label{eq:precision}
+\end{equation}
+
+\begin{equation}
+\mbox{Recall} = \frac{\mbox{TP}}{\mbox{TP} + \mbox{FN}}
+\label{eq:recall}
+\end{equation}
+
+\begin{equation}
+\mbox{mAP} = \frac{1}{N} \sum_{i=1}^{N} \mbox{AP}_i
+\label{eq:mAP}
+\end{equation}
+
+System performance is additionally measured through processing speed metrics:
+
+\begin{equation}
+\mbox{FPS} = \frac{1}{\mbox{Inference Time}}
+\label{eq:fps}
+\end{equation}
+
+These metrics collectively provide a comprehensive framework for evaluating detection accuracy and reliability, real-time processing capability, system efficiency and resource utilization, and overall deployment effectiveness.
+
+\subsection{Cloud Integration Strategies}
+
+Modern detection systems employ sophisticated hybrid architectures that combine edge and cloud computing capabilities \cite{hubdat2024}. The data management aspect encompasses efficient storage solutions, real-time synchronization mechanisms, and robust backup and recovery systems. Processing distribution is carefully managed through load balancing mechanisms, resource optimization strategies, and comprehensive scalability provisions.
+
+\subsection{System Scalability Considerations}
+
+The deployment of vehicle detection systems at scale introduces complex challenges across multiple domains. Network infrastructure requirements demand careful attention to bandwidth management, network reliability assurance, and data transmission security. Hardware deployment considerations encompass device maintenance protocols, power management strategies, and environmental protection measures. Software management aspects require sophisticated version control systems, streamlined update distribution mechanisms, and comprehensive configuration management approaches.
