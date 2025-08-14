@@ -26,7 +26,7 @@ jobs:
         run: mkdir dist && mv paper-id.pdf dist/paper-ta-ina.pdf && mv paper-en.pdf dist/paper-ta-eng.pdf
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v4.0.0
         with:
           path: dist
 
